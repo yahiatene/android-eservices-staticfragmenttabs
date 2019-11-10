@@ -8,15 +8,14 @@ import android.widget.Button;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-
 public class FragmentTwo extends Fragment {
 
-    public static final String TAB_NAME = "SUBTRACT";
+    static final String TAB_NAME = "SUBTRACT";
     private SharedViewModel model;
 
     public FragmentTwo() { }
 
-    public static FragmentTwo newInstance() {
+    static FragmentTwo newInstance() {
         return new FragmentTwo();
     }
 
@@ -40,7 +39,7 @@ public class FragmentTwo extends Fragment {
     }
 
     // updates liveData from model
-    public void updateLiveData(){
+    private void updateLiveData(){
         Integer value =  model
                 .getLiveData()
                 .getValue();
@@ -63,6 +62,4 @@ public class FragmentTwo extends Fragment {
         super.onStart();
     }
 
-    //TODO add listener to button and transmit the information to parent Activity
-    //TODO read the Android doc, as suggested, to do it the right way
 }

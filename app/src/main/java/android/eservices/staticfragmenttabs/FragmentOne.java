@@ -1,6 +1,5 @@
 package android.eservices.staticfragmenttabs;
 
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,15 +8,14 @@ import android.widget.Button;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-//Once it's done, then create a second fragment with the other layout
 public class FragmentOne extends Fragment {
 
-    public static final String TAB_NAME = "ADD";
+    static final String TAB_NAME = "ADD";
     private SharedViewModel model;
 
     public FragmentOne() { }
 
-    public static FragmentOne newInstance() {
+    static FragmentOne newInstance() {
         return new FragmentOne();
     }
 
@@ -40,9 +38,8 @@ public class FragmentOne extends Fragment {
         return view;
     }
 
-
     // updates liveData from model
-    public void updateLiveData(){
+    private void updateLiveData(){
         Integer value =  model
                 .getLiveData()
                 .getValue();
@@ -55,34 +52,15 @@ public class FragmentOne extends Fragment {
         }
     }
 
-
-//    @Override
-//    public void onActivityCreated(Bundle savedInstanceState) {
-//        super.onActivityCreated(savedInstanceState);
-//        model = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
-//        model.getLiveData().observe(getViewLifecycleOwner(), new Observer<Integer>() {
-//            @Override
-//            public void onChanged(Integer integer) {
-//                textCounter.setText(integer);
-//            }
-//        });
-//    }
-
-
-
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
     }
-
 
     @Override
     public void onStart() {
         super.onStart();
     }
 
-    //TODO add listener to button and transmit the information to parent Activity
-    //TODO read the Android doc, as suggested, to do it the right way
 }

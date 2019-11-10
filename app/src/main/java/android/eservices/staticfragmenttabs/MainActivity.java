@@ -11,15 +11,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ViewPager viewPager;
-    private int currentCounter;
     private TextView counterTextView;
-    private PagerAdapter pagerAdapter;
     private SharedViewModel model;
 
     @SuppressLint("DefaultLocale")
@@ -43,18 +39,14 @@ public class MainActivity extends AppCompatActivity {
         setupViewPagerAndTabs();
     }
 
-    //TODO fill the method to get view references and initialize viewpager to display our fragments
+
     private void setupViewPagerAndTabs() {
 
-        viewPager = findViewById(R.id.tab_viewpager);
-        pagerAdapter = new PagerAdapter(getSupportFragmentManager());
+        ViewPager viewPager = findViewById(R.id.tab_viewpager);
+        PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
 
-
         //TODO we want two fragments with layouts : fragment_one, fragment_two.
-
-        //TODO set adapter to viewpager and handle fragment change inside
-        //viewpager.setAdapter(...);
 
     }
 
@@ -76,15 +68,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * A simple pager adapter that represents 2 Fragments objects, in
-     * sequence.
+     * A simple pager adapter that represents 2 Fragments objects
      */
     private class PagerAdapter extends FragmentStatePagerAdapter {
 
         // TODO : POSIIBILITE DE FAIRE MIEUX JE PENSE !!!
         private String[] tabTitles = new String[]{FragmentOne.TAB_NAME, FragmentTwo.TAB_NAME};
 
-        public PagerAdapter(FragmentManager fm) {
+        private PagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
