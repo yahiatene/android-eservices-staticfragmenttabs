@@ -1,6 +1,5 @@
 package android.eservices.staticfragmenttabs;
 
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,23 +8,23 @@ import android.widget.Button;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-//Once it's done, then create a second fragment with the other layout
-public class FragmentOne extends Fragment {
 
-    public static final String TAB_NAME = "ADD";
+public class FragmentTwo extends Fragment {
+
+    public static final String TAB_NAME = "SUBTRACT";
     private SharedViewModel model;
 
-    public FragmentOne() { }
+    public FragmentTwo() { }
 
-    public static FragmentOne newInstance() {
-        return new FragmentOne();
+    public static FragmentTwo newInstance() {
+        return new FragmentTwo();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_one, container, false);
-        Button button = view.findViewById(R.id.button_increment);
+        View view = inflater.inflate(R.layout.fragment_two, container, false);
+        Button button = view.findViewById(R.id.button_decrement);
         // holds instance of SharedViewModel
         model =
                 ViewModelProviders
@@ -40,7 +39,6 @@ public class FragmentOne extends Fragment {
         return view;
     }
 
-
     // updates liveData from model
     public void updateLiveData(){
         Integer value =  model
@@ -48,35 +46,17 @@ public class FragmentOne extends Fragment {
                 .getValue();
 
         if(null != value) {
-            model.getLiveData().setValue(++value);
+            model.getLiveData().setValue(--value);
         }
         if(null == value){
             model.getLiveData().setValue(0);
         }
     }
 
-
-//    @Override
-//    public void onActivityCreated(Bundle savedInstanceState) {
-//        super.onActivityCreated(savedInstanceState);
-//        model = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
-//        model.getLiveData().observe(getViewLifecycleOwner(), new Observer<Integer>() {
-//            @Override
-//            public void onChanged(Integer integer) {
-//                textCounter.setText(integer);
-//            }
-//        });
-//    }
-
-
-
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
-
 
     @Override
     public void onStart() {
