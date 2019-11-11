@@ -51,11 +51,11 @@ Ce TP est découpé en deux partie qui se suivent, faites d'abord l'une puis l'a
 ###### Première partie : faire fonctionner les fragments
 Dans la version initiale du projet, nous vous mettons à disposition toutes les ressources du projet ainsi qu'un Fragment vide.
 Il vous faut tout d'abord :
-- [ ] Remplir les méthodes du fragment, en comprenant leur rôle.
-- [ ] Remplir les méthodes de l'activité en suivant les TODOs. Le principe est d'initialiser les références vers les vues, de préparer les instances des fragments (pour l'instant d'un seul fragment), et d'écrire le comportement du viewpager (autrement dit, lui associer un adapter). 
-- [ ] A ce stade, faites en sorte que les deux onglets affichent deux instances du même fragment et testez l'application.
-- [ ] Si tout fonctionne bien, créer un deuxième fragment, associez lui l'autre layout disponible (fragment_two) et associez le à l'onglet correspondant. 
-- [ ] A priori, maintenant les deux onglets fonctionnent. Vous savez maintenant mettre en place des onglets basiques associés à des fragments.
+- [x] Remplir les méthodes du fragment, en comprenant leur rôle.
+- [x] Remplir les méthodes de l'activité en suivant les TODOs. Le principe est d'initialiser les références vers les vues, de préparer les instances des fragments (pour l'instant d'un seul fragment), et d'écrire le comportement du viewpager (autrement dit, lui associer un adapter). 
+- [x] A ce stade, faites en sorte que les deux onglets affichent deux instances du même fragment et testez l'application.
+- [x] Si tout fonctionne bien, créer un deuxième fragment, associez lui l'autre layout disponible (fragment_two) et associez le à l'onglet correspondant. 
+- [x] A priori, maintenant les deux onglets fonctionnent. Vous savez maintenant mettre en place des onglets basiques associés à des fragments.
 
 ###### Deuxième partie : brancher la logique des fragments
 On veut maintenant que, lorsque l'on clique sur les boutons des fragments, le compteur en variable dans l'activité soit incrémenté ou décrémenté.
