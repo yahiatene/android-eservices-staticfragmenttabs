@@ -26,13 +26,14 @@ public class MainActivity extends AppCompatActivity {
 
         counterTextView = findViewById(R.id.counter_textview);
         // TODO : A VOIR l'increment commence apres le deuxieme click
-        counterTextView.setText(String.format("Current counter is : %1$d",0));
+        setTextToView(0);
 
         // holds instance of SharedViewModel
         model =
                 ViewModelProviders
                         .of(this)
                         .get(SharedViewModel.class);
+
         // observes the liveData from SharedViewModel
         observeLiveData();
 
@@ -46,8 +47,6 @@ public class MainActivity extends AppCompatActivity {
         PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
 
-        //TODO we want two fragments with layouts : fragment_one, fragment_two.
-
     }
 
 
@@ -58,13 +57,17 @@ public class MainActivity extends AppCompatActivity {
                 @SuppressLint("DefaultLocale")
                 @Override
                 public void onChanged(@Nullable Integer integer) {
-                    //String text = String.valueOf(R.string.counter_text);
-                    //TODO : CECI EST UNE TRICHE DE MA PART :( À RESOUDRE
-                    //TODO : increment and decrement counter, use the already provided String ressource (see strings.xml)
-                    counterTextView.setText(String.format("Current counter is : %1$d",integer));
+                    setTextToView(integer);
                 }
              });
     }
+
+
+    public void setTextToView(Integer number){
+        String formattedTextView = this.getString(R.string.counter_text, number);
+        counterTextView.setText(formattedTextView);
+    }
+
 
 
     /**
@@ -72,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
      */
     private class PagerAdapter extends FragmentStatePagerAdapter {
 
-        // TODO : POSIIBILITE DE FAIRE MIEUX JE PENSE !!!
         private String[] tabTitles = new String[]{FragmentOne.TAB_NAME, FragmentTwo.TAB_NAME};
 
         private PagerAdapter(FragmentManager fm) {
